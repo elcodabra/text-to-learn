@@ -1,3 +1,9 @@
-<h1>
-  level {{ level }}
+<h1 *ngIf="level">
+  {{ level.name }}
 </h1>
+
+<div *ngFor="let item of levels;">
+  <a [routerLink]="['../', item.id]">{{ item.id }}</a>
+</div>
+
+<button *ngIf="level && level.id + 1 < length" [routerLink]="['../', level.id + 1]">Next level</button>
