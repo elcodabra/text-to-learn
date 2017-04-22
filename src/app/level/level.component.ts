@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { LevelService } from '../services/level.service';
+import { Level } from '../services/level.model';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-level',
@@ -7,17 +10,22 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./level.component.scss']
 })
 export class LevelComponent implements OnInit {
-  level: number = 0;
+  level: Level;
+  length: number;
+  levels: Level[];
 
-  constructor(private route: ActivatedRoute,
-              private router: Router) { }
+  constructor(private route: ActivatedRoute, private dataService: LevelService) { }
 
   ngOnInit() {
-    this.level = +this.route.snapshot.params['id'];
-  }
+    this.route.params
+      .switchMap((params: Params) => {
+        let id = +params['id'];
+        return this.dataService.getLevel(id);
+      })
+      .subscribe((level: Level) => this.level = level);
 
-  goToSlide(level) {
-    this.router.navigate(['../', level], { relativeTo: this.route })
+    this.length = this.dataService.getCount();
+    this.levels = this.dataService.getTitles();
   }
 
 }

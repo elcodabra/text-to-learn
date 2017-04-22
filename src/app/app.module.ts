@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { LevelComponent } from './level/level.component';
 import { SuccessResultComponent } from './success-result/success-result.component';
+import { LevelService } from "./services/level.service";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { SuccessResultComponent } from './success-result/success-result.componen
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LevelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
