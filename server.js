@@ -23,7 +23,7 @@ const forceSSL = function() {
 // to use the forceSSL
 // middleware
 // TODO: should comment for local testing
-//app.use(forceSSL());
+app.use(forceSSL());
 
 // Gzip
 app.use(compression());
