@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { LevelService } from '../services/level.service';
-import { Level } from '../services/level.model';
+import { LevelService } from './service/level.service';
+import { Level } from './service/level.model';
 import 'rxjs/add/operator/switchMap';
 
 @Component({

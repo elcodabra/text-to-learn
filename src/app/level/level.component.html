@@ -7,3 +7,4 @@
 </div>
 
 <button *ngIf="level && level.id + 1 < length" [routerLink]="['../', level.id + 1]">Next level</button>
+<button *ngIf="level && level.id + 1 == length" [routerLink]="['/result']">Finish</button>

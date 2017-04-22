@@ -8,7 +8,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { LevelComponent } from './level/level.component';
 import { SuccessResultComponent } from './success-result/success-result.component';
-import { LevelService } from "./services/level.service";
+import { LevelService } from "./level/service/level.service";
 
 @NgModule({
   declarations: [
