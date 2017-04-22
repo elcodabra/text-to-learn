@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private ttl: string = 'Input your text';
+  ttl: string = 'Input your text';
 
   constructor(private router: Router) { }
 
