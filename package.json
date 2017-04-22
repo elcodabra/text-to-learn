@@ -6,7 +6,6 @@
     "ng": "ng",
     "start:dev": "ng serve",
     "start:prod": "node server.js",
-    "start": "npm run start:prod",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

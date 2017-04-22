@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  /* For older browsers */
+  background: url('./assets/rectangle-8.png');
+  /* Rectangle 8: */
+  background: linear-gradient(-180deg, #3023AE 0%, #53A0FE 100%, #B4ED50 100%) no-repeat;
+}

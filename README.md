@@ -1,5 +1,7 @@
 # Text-To-Learn-App
 
+Author: [angularattack2017-angry-boys|https://github.com/Hackbit/angularattack2017-angry-boys]
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
@@ -35,3 +37,4 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 1. `heroku create`
 2. `git push heroku master` or `npm run deploy`
 3. `heroku open`
+
