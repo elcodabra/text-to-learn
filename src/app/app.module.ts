@@ -8,8 +8,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { LevelComponent } from './level/level.component';
 import { SuccessResultComponent } from './success-result/success-result.component';
-import { LevelService } from "./level/service/level.service";
-import { ReversePipe } from './shared/reverse.pipe';
+import { LevelService } from './level/service/level.service';
+import { SentencesService } from './shared/service/sentences.service';
+import { ReversePipe } from './shared/pipe/reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ReversePipe } from './shared/reverse.pipe';
     BrowserModule,
     FormsModule
   ],
-  providers: [LevelService],
+  providers: [LevelService, SentencesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
