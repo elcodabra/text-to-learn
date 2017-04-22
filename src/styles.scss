@@ -12,12 +12,12 @@ html {
 body {
   margin: 0;
   position: relative;
-  font-size: 150%;
+  font: 10px/1.5 Arial, Helvetica, sans-serif;
   min-height: 100%;
   /* For older browsers */
-  background: url('./assets/rectangle-8.png');
+  background: url('./assets/rectangle-8.png') fixed;
   /* Rectangle 8: */
-  background: linear-gradient(-180deg, #3023AE 0%, #53A0FE 100%, #B4ED50 100%) no-repeat;
+  background: linear-gradient(-180deg, #3023AE 0%, #53A0FE 100%, #B4ED50 100%) no-repeat fixed;
 }
 
 .btn {
@@ -45,8 +45,50 @@ body {
 
 .ttl {
   color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 5rem;
   margin: 3rem 0;
   text-align: center;
+}
+
+.b-form {
+	margin: 0 auto;
+	min-width: 300px;
+	max-width: 600px;
+}
+
+.form {
+	position: relative;
+	width: 100%;
+}
+
+.form__item {
+	padding: 1.5rem 0;
+}
+
+.form__item-textarea {
+	background: #ffffff;
+	border-radius: 12px;
+	border: 1px solid #ffffff;
+	box-shadow: 0 10px 35px rgba(0,0,0,.5);
+	margin-bottom: 15px;
+	padding: 35px 45px;
+	width: 100%;
+}
+
+.form__item-btn {
+  text-align: center;
+}
+
+.form__ctrl {
+	background: #ffffff;
+	font-size: 1.6rem;
+	outline: none;
+	width: 100%;
+}
+
+.form__ctrl-textarea {
+	background: #ffffff;
+	border: 0;
+	min-height: 250px;
+	resize: none;
 }
