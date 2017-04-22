@@ -5,27 +5,41 @@ import { Level } from './service/level.model';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  selector: 'app-level',
-  templateUrl: './level.component.html',
-  styleUrls: ['./level.component.scss']
+	selector: 'app-level',
+	templateUrl: './level.component.html',
+	styleUrls: ['./level.component.scss']
 })
 export class LevelComponent implements OnInit {
-  level: Level;
-  length: number;
-  levels: Level[];
+	private ttl: string;
+	level: Level;
+	length: number;
+	levels: Level[] = [];
+	private levelsComplete: Level[] = [];
 
-  constructor(private route: ActivatedRoute, private dataService: LevelService) { }
+	constructor(private route: ActivatedRoute, private dataService: LevelService) { }
 
-  ngOnInit() {
-    this.route.params
-      .switchMap((params: Params) => {
-        let id = +params['id'];
-        return this.dataService.getLevel(id);
-      })
-      .subscribe((level: Level) => this.level = level);
+	ngOnInit() {
+		let self = this;
 
-    this.length = this.dataService.getCount();
-    this.levels = this.dataService.getTitles();
-  }
+		this.route.params
+			.switchMap((params: Params) => {
+				let id = +params['id'];
+				return this.dataService.getLevel(id);
+			})
+			.subscribe((level: Level) => {
+				this.level = level
+				if (this.levels.length === 0)
+					this.levels = this.dataService.getTitles();
+				this.ttl = this.levels[0]['name'];
+				this.checkLevels();
+			});
 
+		this.length = this.dataService.getCount();
+		
+	}
+
+	checkLevels() {
+		this.levelsComplete.push(this.levels[0]);
+		this.levels.shift();
+	}
 }

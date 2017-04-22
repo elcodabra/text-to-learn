@@ -1,0 +1,145 @@
+.levels {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
+}
+
+.levels:after {
+	content: '';
+	display: block;
+	clear: both;
+	line-height: 0;
+}
+
+.levels-complete, .levels-uncomplete {
+	float: left;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 7.5rem 0;
+	max-width: 400px;
+	width: 30%;
+}
+
+.levels-complete {
+	text-align: right;
+}
+
+.levels-uncomplete {
+	text-align: left;
+}
+
+.levels-current {
+	float: left;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 1.5rem;
+	min-width: 300px;
+	max-width: 500px;
+	width: 100%;
+}
+
+.levels-current .workspace {
+	background: #ffffff;
+	border-radius: 1.2rem;
+	box-shadow: 0 10px 35px rgba(0,0,0,.5);
+	padding: 3.5rem 4.5rem;
+	height: 25rem;
+}
+
+.levels-current .wording {
+	margin: 5rem 0 3.5rem;
+} 
+
+.wording__item {
+	background: #ffffff;
+	box-shadow: 0 10px 35px rgba(0,0,0,.5);
+	border-radius: 2rem;
+	color: #1C214E;
+	margin-top: 2rem;
+	padding: .8rem 4.5rem;
+	font-size: 1.6rem;
+	text-align: left;
+}
+
+.wording__item:first-child{
+	margin-top: 0;
+}
+
+.levels__item {
+	float:left;
+	margin: 0 1rem;
+	background: linear-gradient(358.08deg, #3023AE 0%, #53A0FD 100%, #B4EC51 100%);
+	border-radius: 50%;
+	color: #ffffff;
+	width: 10rem;
+	height: 10rem;
+	opacity: .63;
+	text-align: center;
+	text-decoration: none;
+}
+
+.levels-complete .levels__item {
+	float: right;
+}
+
+.levels__item-flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.levels__item:first-child {
+	font-size: 8px;
+	width: 8rem;
+	height: 8rem;
+}
+
+.levels__item:nth-child(2n) {
+	font-size: 6px;
+	width: 6rem;
+	height: 6rem;
+}
+
+.levels__item:nth-child(3n) {
+	font-size: 4px;
+	width: 4rem;
+	height: 4rem;
+}
+
+.levels__item:nth-child(4n) {
+	font-size: 2px;
+	width: 2rem;
+	height: 2rem;
+}
+
+.levels__item-content {
+	opacity: .22;
+}
+
+.levels__item-content span {
+	display: block;
+}
+
+.levels__item-content .number {
+	font-size: 3.6em;
+	line-height: 1;
+}
+
+.levels__item-content .caption {
+	font-size: 1.8em;
+}
+
+.levels-complete .levels__item {
+	background: #ffffff;
+	color: #3023AE;
+	opacity: 1;
+}
+
+.levels-complete .levels__item-content {
+	opacity: 1;
+}
