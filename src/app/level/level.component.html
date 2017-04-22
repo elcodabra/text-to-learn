@@ -2,13 +2,15 @@
 
 <div class="form">
 
-	<div class="levels">
+	<div class="levels" *ngIf="level">
 
 		<div class="levels-complete">
-			<a class="levels__item" *ngFor="let item of levelsComplete;">
+			<a *ngFor="let item of levels | reverse" class="levels__item"
+         [hidden]="item.id > level.id || item.id == 0"
+         [ngStyle]="{'font-size':10-2*(level.id-item.id)+'px','width':10-2*(level.id-item.id)+'rem','height':10-2*(level.id-item.id)+'rem'}">
 				<div class="levels__item-flex">
 					<div class="levels__item-content">
-						<span class="number">{{ item.id+1 }}</span>
+						<span class="number">{{ item.id }}</span>
 						<span class="caption">level</span>
 					</div>
 				</div>
@@ -26,10 +28,13 @@
 		</div>
 
 		<div class="levels-uncomplete">
-			<a class="levels__item" *ngFor="let item of levels;" [routerLink]="['../', item.id]">
+			<a *ngFor="let item of levels" class="levels__item"
+         [hidden]="item.id <= level.id"
+         [ngStyle]="{'font-size':12-2*(item.id-level.id)+'px','width':12-2*(item.id-level.id)+'rem','height':12-2*(item.id-level.id)+'rem'}"
+         [routerLink]="['../', item.id]">
 				<div class="levels__item-flex">
 					<div class="levels__item-content">
-						<span class="number">{{ item.id+1 }}</span>
+						<span class="number">{{ item.id }}</span>
 						<span class="caption">level</span>
 					</div>
 				</div>
@@ -38,9 +43,9 @@
 
 	</div>
 
-	<div class="form__item form__item-btn" *ngIf="level && level.id + 1 < length">
-		<button *ngIf="level && level.id + 1 < length" class="btn" [routerLink]="['../', level.id + 1]">Next level</button>
-		<button *ngIf="level && level.id + 1 == length" class="btn" [routerLink]="['/result']">Finish</button>
+	<div class="form__item form__item-btn" *ngIf="level && level.id < length">
+		<button *ngIf="level.id < length - 1" class="btn" [routerLink]="['../', level.id + 1]">Next level</button>
+		<button *ngIf="level.id == length - 1" class="btn" [routerLink]="['/result']">Finish</button>
 	</div>
 
 </div>

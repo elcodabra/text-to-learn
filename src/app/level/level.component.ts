@@ -10,36 +10,25 @@ import 'rxjs/add/operator/switchMap';
 	styleUrls: ['./level.component.scss']
 })
 export class LevelComponent implements OnInit {
-	private ttl: string;
 	level: Level;
 	length: number;
-	levels: Level[] = [];
-	private levelsComplete: Level[] = [];
+	levels: Level[];
 
 	constructor(private route: ActivatedRoute, private dataService: LevelService) { }
 
 	ngOnInit() {
-		let self = this;
-
 		this.route.params
 			.switchMap((params: Params) => {
 				let id = +params['id'];
 				return this.dataService.getLevel(id);
 			})
 			.subscribe((level: Level) => {
-				this.level = level
-				if (this.levels.length === 0)
-					this.levels = this.dataService.getTitles();
-				this.ttl = this.levels[0]['name'];
-				this.checkLevels();
+				this.level = level;
 			});
 
+    this.levels = this.dataService.getTitles();
 		this.length = this.dataService.getCount();
-		
+
 	}
 
-	checkLevels() {
-		this.levelsComplete.push(this.levels[0]);
-		this.levels.shift();
-	}
 }

@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { LevelComponent } from './level/level.component';
 import { SuccessResultComponent } from './success-result/success-result.component';
 import { LevelService } from "./level/service/level.service";
+import { ReversePipe } from './shared/reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LevelService } from "./level/service/level.service";
     PageNotFoundComponent,
     HomeComponent,
     LevelComponent,
-    SuccessResultComponent
+    SuccessResultComponent,
+    ReversePipe
   ],
   imports: [
     AppRoutingModule,
