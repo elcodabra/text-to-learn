@@ -1,7 +1,16 @@
 html {
   height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 body {
+  margin: 0;
+  position: relative;
   min-height: 100%;
   /* For older browsers */
   background: url('./assets/rectangle-8.png');
