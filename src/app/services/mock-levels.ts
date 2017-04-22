@@ -1,11 +1,9 @@
 import { Level } from './level.model';
 
 export const LEVELS: Level[] = [
-  {id: 0, name: 'Mr. Nice'},
-  {id: 1, name: 'Narco'},
-  {id: 2, name: 'Bombasto'},
-  {id: 3, name: 'Celeritas'},
-  {id: 4, name: 'Magneta'},
-  {id: 5, name: 'RubberMan'},
-  {id: 6, name: 'Dynama'}
+  {id: 0, name: 'View'},
+  {id: 1, name: 'Put sentences to the right order'},
+  {id: 2, name: 'Put words in sentences to the right order'},
+  {id: 3, name: 'Type the sentence by order'},
+  {id: 4, name: 'Type all text'}
 ];

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   @Input() ttl: string = 'Input your text';
-  
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  startLevels() {
+    this.router.navigate(['level/', 0])
+  }
 }
