@@ -1,0 +1,38 @@
+.b-form {
+	margin: 0 auto;
+	min-width: 300px;
+	max-width: 600px;
+}
+
+.form {
+	position: relative;
+	width: 100%;
+}
+
+.form__item {
+	padding: 15px 0;
+}
+
+.form__item-textarea {
+	background: #ffffff;
+	border-radius: 12px;
+	border: 1px solid #ffffff;
+	box-shadow: 0 10px 35px rgba(0,0,0,.5);
+	margin-bottom: 15px;
+	padding: 35px 45px;
+	width: 100%;
+}
+
+.form__ctrl {
+	background: #ffffff;
+	font-size: 1.6rem;
+	outline: none;
+	width: 100%;
+}
+
+.form__ctrl-textarea {
+	background: #ffffff;
+	border: 0;
+	min-height: 250px;
+	resize: none;
+}
