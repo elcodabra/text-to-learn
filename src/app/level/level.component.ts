@@ -11,34 +11,46 @@ import 'rxjs/add/operator/switchMap';
 	styleUrls: ['./level.component.scss']
 })
 export class LevelComponent implements OnInit {
-	level: Level
-	levels: Level[]
-  length: number
-  sentences: string[]
-  wordingSentences: string[] = []
-  workspaceSentences: string[] = []
+	level: Level;
+	levels: Level[];
+  length: number;
+  sentences: string[];
+  wordingSentences: string[] = [];
+  workspaceSentences: string[] = [];
+  wordMatrix: any[] = [];
 
 	constructor(private route: ActivatedRoute, private dataService: LevelService, private sentencesService: SentencesService) { }
 
 	ngOnInit() {
 		this.route.params
 			.switchMap((params: Params) => this.dataService.getLevel(+params['id']))
-			.subscribe((level: Level) => this.level = level)
+			.subscribe((level: Level) => this.level = level);
 
-    this.levels = this.dataService.getTitles()
-		this.length = this.dataService.getCount()
-    this.sentences = this.sentencesService.getSentences()
-    this.wordingSentences = this.shuffle(this.sentences)
+    this.levels = this.dataService.getTitles();
+		this.length = this.dataService.getCount();
+    this.sentences = this.sentencesService.getSentences();
+    this.wordingSentences = this.shuffle(this.sentences);
+    this.wordMatrix = this.sentences.map((item) => { return { source: this.shuffle(item.split(' ')), target: []}});
 	}
 
   addToList(item, index) {
-    this.wordingSentences.splice(index, 1)
-    this.workspaceSentences.push(item)
+    this.wordingSentences.splice(index, 1);
+    this.workspaceSentences.push(item);
   }
 
   removeFromList(item, index) {
-    this.workspaceSentences.splice(index, 1)
-    this.wordingSentences.push(item)
+    this.workspaceSentences.splice(index, 1);
+    this.wordingSentences.push(item);
+  }
+
+  addWord(sentence, word, index) {
+    sentence.source.splice(index,1);
+    sentence.target.push(word);
+  }
+
+  removeWord(sentence, word, index) {
+    sentence.target.splice(index,1);
+    sentence.source.push(word);
   }
 
   isEqual(a,b) {
@@ -49,8 +61,14 @@ export class LevelComponent implements OnInit {
     return true;
   }
 
+  isEmptyTarget(a) {
+    a.forEach((item) => { return item.target.length == 0 })
+    return true;
+  }
+
   shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let newArray = Object.assign([], array);
+    let currentIndex = newArray.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
@@ -60,12 +78,12 @@ export class LevelComponent implements OnInit {
       currentIndex -= 1;
 
       // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+      temporaryValue = newArray[currentIndex];
+      newArray[currentIndex] = newArray[randomIndex];
+      newArray[randomIndex] = temporaryValue;
     }
 
-    return array;
+    return newArray;
   }
 
 }
