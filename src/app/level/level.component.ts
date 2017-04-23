@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { LevelService } from './service/level.service';
 import { SentencesService } from '../shared/service/sentences.service';
@@ -89,5 +89,4 @@ export class LevelComponent implements OnInit {
 
     return newArray;
   }
-
 }

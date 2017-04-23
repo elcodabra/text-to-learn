@@ -1,7 +1,6 @@
-<div class="timer" [ngClass]="{'timer-finish': finish}">
-    <div class="timer__result" *ngIf="finish">Your time is <span *ngIf="minutes != 0">{{ minutes }} m</span> <span>{{ seconds }} s</span>.</div>
-    <div *ngIf="!finish">
+<div class="timer" [ngClass]="{'timer-finish': timerStop}">
+    <div *ngIf="!timerStop">
         <i class="timer__icon"></i>
-        <span class="timer__counter"><span *ngIf="minutes != 0">{{ minutes }} m</span> <span>{{ seconds }} s</span></span>
+        <span class="timer__counter"><span *ngIf="hours != 0">{{ hours }} h</span> <span *ngIf="minutes != 0">{{ minutes }} m</span> <span>{{ seconds }} s</span></span>
     </div>
 </div>

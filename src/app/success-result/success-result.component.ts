@@ -8,7 +8,7 @@ import { LevelService } from '../level/service/level.service';
 })
 export class SuccessResultComponent implements OnInit {
 
-  finish: boolean = true;
+  timerStop: boolean = true;
   levelList: any[] = [];
 
   constructor(private dataService: LevelService) { }
