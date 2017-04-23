@@ -50,7 +50,8 @@ export class LevelComponent implements OnInit {
   }
 
   shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let newArray = Object.assign([], array);
+    let currentIndex = newArray.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
@@ -60,12 +61,12 @@ export class LevelComponent implements OnInit {
       currentIndex -= 1;
 
       // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+      temporaryValue = newArray[currentIndex];
+      newArray[currentIndex] = newArray[randomIndex];
+      newArray[randomIndex] = temporaryValue;
     }
 
-    return array;
+    return newArray;
   }
 
 }
