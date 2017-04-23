@@ -42,7 +42,7 @@
 				<div class="wording__item">
 					<span class="wording__item-number">{{ (ind + 1) + '. ' }}</span>
 					<span *ngFor="let item of sentence.target; let i = index;" (click)="removeWord(sentence, item, i)">{{ item + ' ' }}</span>
-					<span [hidden]="sentence.target.join(' ') != sentences[ind]" style="margin-left: 350px;">&radic;</span>
+					<span class="done" [hidden]="sentence.target.join(' ') != sentences[ind]"></span>
 				</div>
 			</div>
 		</div>
@@ -51,7 +51,7 @@
 	<div class="levels-current" *ngIf="level.id == 3">
 		<div class="wording">
 			<div class="wording__item" *ngFor="let item of inputSentences; let i = index;">
-				<input type="text" [(ngModel)]="inputSentences[i]" placeholder="Input the sentense #{{ i+1 }}"/>
+				<input class="form__ctrl" type="text" [(ngModel)]="inputSentences[i]" placeholder="Input the sentense #{{ i+1 }}"/>
 			</div>
 		</div>
 	</div>

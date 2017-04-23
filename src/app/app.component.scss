@@ -1,6 +1,7 @@
 .header {
   position: relative;
   padding: 30px;
+  z-index: 5;
 }
 
 .header__logo {
@@ -20,6 +21,7 @@
 .content {
   position: relative;
   min-height: 100%;
+  padding-top: 3rem; 
   text-align: center;
   z-index: 5;
 }
