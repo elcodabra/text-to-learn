@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessResultComponent implements OnInit {
 
+  private finish: boolean = true;
+  private levelList: any[] = ['1','2','3','4','5'];
+
   constructor() { }
 
   ngOnInit() {

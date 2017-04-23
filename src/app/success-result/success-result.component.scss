@@ -1,0 +1,46 @@
+.levels {
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+
+.levels:after {
+	content: '';
+	display: block;
+	clear: both;
+	line-height: 0;
+}
+
+.levels__item {
+    display: inline-block;
+    vertical-align: middle;
+	margin: 0 1rem;
+	background: #ffffff;
+	color: #3023AE;
+	border-radius: 50%;
+	width: 10rem;
+	height: 10rem;
+	text-align: center;
+	text-decoration: none;
+}
+
+.levels__item-flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.levels__item-content span {
+	display: block;
+}
+
+.levels__item-content .number {
+	font-size: 3.6em;
+	line-height: 1;
+}
+
+.levels__item-content .caption {
+	font-size: 1.8em;
+}

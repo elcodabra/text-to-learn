@@ -1,4 +1,7 @@
-<div class="timer">
-    <i class="timer__icon"></i>
-    <span>01 m 45 s</span>
+<div class="timer" [ngClass]="{'timer-finish': finish}">
+    <div class="timer__result" *ngIf="finish">Your time is <span>11 m 23 s</span>.</div>
+    <ng-template #elseBlock>
+        <i class="timer__icon"></i>
+        <span class="timer__counter">01 m 45 s</span>
+    </ng-template>
 </div>

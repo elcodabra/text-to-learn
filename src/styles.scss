@@ -78,6 +78,15 @@ p {
 	font-size: 1.6rem; 
 }
 
+._center {
+	text-align: center;
+}
+
+.btn-wrap {
+	padding: 3.5rem 0 2.5rem;
+	text-align: center;
+}
+
 .btn {
 	height: 40px;
 	border: 1px solid #F78279;
@@ -106,6 +115,14 @@ p {
 	font-size: 5.2rem;
 	font-weight: 300;
 	margin: 3rem 0 1rem;
+	text-align: center;
+}
+
+.pre-ttl {
+	color: #ffffff;
+	font-size: 2.4rem;
+	font-weight: 300;
+	margin: 1rem 0 5rem;
 	text-align: center;
 }
 

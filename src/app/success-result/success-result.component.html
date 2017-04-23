@@ -1,3 +1,19 @@
-<p>
-  success-result works!
-</p>
+<div class="ttl">Success!</div>
+<div class="pre-ttl">You’ve completed all levels.</div>
+
+<div class="levels">
+  <a class="levels__item" *ngFor="let lvl of levelList">
+		<div class="levels__item-flex">
+			<div class="levels__item-content">
+				<span class="number">{{ lvl }}</span>
+				<span class="caption">level</span>
+			</div>
+		</div>
+	</a>
+</div>
+
+<timer [finish]="finish"></timer>
+
+<div class="btn-wrap">
+  <button class="btn" [routerLink]="['/']">Try again!</button>
+</div>

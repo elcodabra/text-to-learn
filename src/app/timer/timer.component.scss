@@ -2,7 +2,12 @@
 	color: #ffffff;
 	font-size: 2.2rem;
 	font-weight: 300;
+	margin: 1rem 0;
 	text-align: center
+}
+
+.timer-finish {
+	margin-top: 5rem;
 }
 
 .timer__icon {
@@ -14,7 +19,7 @@
 	height: 18px;
 }
 
-.timer span {
+.timer__counter {
 	display: inline-block;
 	vertical-align: middle;
 	line-height: 1;
