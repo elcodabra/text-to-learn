@@ -69,8 +69,8 @@
 		</div>
 	</div>
 
-	<div class="levels-uncomplete" *ngIf="level.id != 0">
-		<div class="levels__item-wrap" *ngFor="let item of levels" [hidden]="item.id <= level.id">
+	<div class="levels-uncomplete">
+		<div class="levels__item-wrap" *ngFor="let item of levels" [hidden]="item.id <= level.id || level.id == 0">
 			<a class="levels__item"
 					[ngStyle]="{'font-size':12-2*(item.id-level.id)+'px','width':12-2*(item.id-level.id)+'rem','height':12-2*(item.id-level.id)+'rem'}"
 					[routerLink]="['../', item.id]">
