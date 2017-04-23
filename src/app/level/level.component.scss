@@ -2,9 +2,6 @@
 	position: relative;
 	width: 100%;
 	text-align: center;
-	// display: flex;
-	// align-items: center;
-	// justify-content: center;
 }
 
 .levels:after {
@@ -18,9 +15,11 @@
 	float: left;
 	display: inline-block;
 	vertical-align: middle;
-	padding: 7.5rem 0 0;
+	margin-top: 7.3rem;
 	max-width: 400px;
 	width: 25%;
+	height: 12rem;
+	overflow: hidden;
 }
 
 .levels-complete {
@@ -48,7 +47,7 @@
 	box-shadow: 0 10px 35px rgba(0,0,0,.5);
 	margin-bottom: 2rem;
 	padding: 3.5rem 4.5rem;
-	min-height: 25rem;
+	min-height: 2.48rem;
 }
 
 .levels__item-wrap {

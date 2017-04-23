@@ -65,11 +65,16 @@ body {
 	margin: 0;
 	position: relative;
 	font: 10px/1.5 'Proxima Nova', Arial, Helvetica, sans-serif;
-	min-height: 100%;
 	/* For older browsers */
 	background: url('./assets/rectangle-8.png') fixed;
 	/* Rectangle 8: */
 	background: linear-gradient(-180deg, #3023AE 0%, #53A0FE 100%, #B4ED50 100%) no-repeat fixed;
+}
+
+a {
+	text-decoration: none;
+	-webkit-transition: all .3s;
+	transition: all .3s;
 }
 
 p {
@@ -99,6 +104,8 @@ p {
 	font-weight: 600;
 	outline: none;
 	padding: 0 66px;
+	-webkit-transition: all .3s;
+	transition: all .3s;
 }
 
 .btn:hover {
@@ -171,7 +178,6 @@ p {
 	min-height: 250px;
 	resize: none;
 }
-
 
 .done {
 	position: absolute;
