@@ -115,7 +115,6 @@ p {
 	color: #ffffff;
 	font-size: 5.2rem;
 	font-weight: 300;
-	margin: 3rem 0 1rem;
 	text-align: center;
 }
 
@@ -147,8 +146,9 @@ p {
 	border-radius: 12px;
 	border: 1px solid #ffffff;
 	box-shadow: 0 10px 35px rgba(0,0,0,.5);
-	margin-bottom: 15px;
-	padding: 35px 45px;
+	margin-top: 2rem;
+	margin-bottom: 1.5rem;
+	padding: 3.5rem 4.5rem;
 	width: 100%;
 }
 
@@ -170,4 +170,16 @@ p {
 .form__ctrl-textarea {
 	min-height: 250px;
 	resize: none;
+}
+
+
+.done {
+	position: absolute;
+	display: block;
+	top: 50%;
+	right: 1.7rem;
+	margin-top: -6px;  
+	background: url('./assets/done.svg') 0 0 no-repeat;
+	width: 17px;
+	height: 12px;
 }
