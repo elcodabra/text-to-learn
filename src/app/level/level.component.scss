@@ -75,6 +75,10 @@
 	height: 12rem;
 }
 
+.levels-complete .levels__item-wrap {
+	float: right;
+}
+
 .levels__item-wrap:before {
 	content: '';
 	display: inline-block;
@@ -83,16 +87,9 @@
 	width: 0;
 }
 
-.levels__item-wrap .levels__item {
-	float: none;
-	margin: 0;
-	display: inline-block;
-	vertical-align: middle
-}
-
 .levels__item {
-	float:left;
-	margin: 0 1rem;
+	display: inline-block;
+	vertical-align: middle;
 	background: linear-gradient(358.08deg, #3023AE 0%, #53A0FD 100%, #B4EC51 100%);
 	border-radius: 50%;
 	color: #ffffff;
@@ -101,10 +98,6 @@
 	opacity: .63;
 	text-align: center;
 	text-decoration: none;
-}
-
-.levels-complete .levels__item {
-	float: right;
 }
 
 .levels__item-flex {
