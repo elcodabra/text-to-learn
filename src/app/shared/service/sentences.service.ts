@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SentencesService {
-  private sentences: string[] = ["As if some little Arctic flower","Upon the polar hem --","Went wandering down the Latitudes","Until it puzzled came","To continents of summer --","To firmaments of sun --","To strange, bright crowds of flowers --","And birds, of foreign tongue!"]
+  private sentences: string[] = ["Тихо над Альгамброй.","Дремлет вся натура.","Дремлет замок Памбра.","Спит Эстремадура."]
 
   constructor() { }
 
