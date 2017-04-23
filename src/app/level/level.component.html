@@ -42,7 +42,7 @@
 				<div class="wording__item">
 					<span class="wording__item-number">{{ (ind + 1) + '. ' }}</span>
 					<span *ngFor="let item of sentence.target; let i = index;" (click)="removeWord(sentence, item, i)">{{ item + ' ' }}</span>
-					<span class="done" [hidden]="sentence.target.join(' ') != sentences[ind]"></span>
+					<span [ngClass]="sentence.target.join(' ') != sentences[ind] ? 'done_show': 'done'"></span>
 				</div>
 			</div>
 		</div>
