@@ -16,6 +16,7 @@ export class SentencesService {
     //     this.sentences[this.sentences.length - 1] += item;
     //   }
     // })
+    this.sentences = sentences;
   }
 
   getSentences(): string[] {
