@@ -5,17 +5,16 @@
 <div class="levels" *ngIf="level">
 
 	<div class="levels-complete">
-		<div class="levels__item-wrap" *ngFor="let item of levels | reverse">
-		<a class="levels__item"
-				[hidden]="item.id > level.id || item.id == 0"
-				[ngStyle]="{'font-size':10-2*(level.id-item.id)+'px','width':10-2*(level.id-item.id)+'rem','height':10-2*(level.id-item.id)+'rem'}">
-			<div class="levels__item-flex">
-				<div class="levels__item-content">
-					<span class="number">{{ item.id }}</span>
-					<span class="caption">level</span>
-				</div>
-			</div>
-		</a>
+		<div class="levels__item-wrap" *ngFor="let item of levels" [hidden]="item.id > level.id || item.id == 0">
+      <a class="levels__item"
+          [ngStyle]="{'font-size':10-2*(level.id-item.id)+'px','width':10-2*(level.id-item.id)+'rem','height':10-2*(level.id-item.id)+'rem'}">
+        <div class="levels__item-flex">
+          <div class="levels__item-content">
+            <span class="number">{{ item.id }}</span>
+            <span class="caption">level</span>
+          </div>
+        </div>
+      </a>
 		</div>
 	</div>
 
@@ -47,39 +46,32 @@
 		</div>
 	</div>
 
-	<div class="levels-current" *ngIf="[0,1,2].indexOf(level.id) == -1">
-	  <div class="workspace"></div>
-	  <div class="wording">
-		<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-		<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-		<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-		<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-	  </div>
-	</div>
+  <div class="levels-current" *ngIf="level.id == 3">
+    <div class="wording">
+      <div class="wording__item" *ngFor="let item of inputSentences; let i = index;">
+        <input type="text" [(ngModel)]="inputSentences[i]" placeholder="Input the sentense #{{ i+1 }}"/>
+      </div>
+    </div>
+  </div>
 
-	<div class="levels-current" *ngIf="[0,1].indexOf(level.id) == -1">
-		<div class="workspace"></div>
-		<div class="wording">
-			<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-			<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-			<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-			<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-		</div>
-	</div>
+  <div class="levels-current" *ngIf="level.id == 4">
+    <div class="workspace">
+      <textarea [(ngModel)]="inputTextArea" class="form__ctrl form__ctrl-textarea"></textarea>
+    </div>
+  </div>
 
-	<div class="levels-uncomplete">
-		<div class="levels__item-wrap" *ngFor="let item of levels">
-		<a class="levels__item"
-				[hidden]="item.id <= level.id"
-				[ngStyle]="{'font-size':12-2*(item.id-level.id)+'px','width':12-2*(item.id-level.id)+'rem','height':12-2*(item.id-level.id)+'rem'}"
-				[routerLink]="['../', item.id]">
-			<div class="levels__item-flex">
-				<div class="levels__item-content">
-					<span class="number">{{ item.id }}</span>
-					<span class="caption">level</span>
-				</div>
-			</div>
-		</a>
+  <div class="levels-uncomplete">
+		<div class="levels__item-wrap" *ngFor="let item of levels" [hidden]="item.id <= level.id">
+      <a class="levels__item"
+          [ngStyle]="{'font-size':12-2*(item.id-level.id)+'px','width':12-2*(item.id-level.id)+'rem','height':12-2*(item.id-level.id)+'rem'}"
+          [routerLink]="['../', item.id]">
+        <div class="levels__item-flex">
+          <div class="levels__item-content">
+            <span class="number">{{ item.id }}</span>
+            <span class="caption">level</span>
+          </div>
+        </div>
+      </a>
 		</div>
 	</div>
 
