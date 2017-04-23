@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LevelService } from '../level/service/level.service';
 
 @Component({
   selector: 'app-success-result',
@@ -8,11 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class SuccessResultComponent implements OnInit {
 
   finish: boolean = true;
-  levelList: any[] = ['1','2','3','4','5'];
+  levelList: any[] = [];
 
-  constructor() { }
+  constructor(private dataService: LevelService) { }
 
   ngOnInit() {
+    for(let i = 1; i < this.dataService.getCount(); i++) {
+      this.levelList.push(i);
+    }
   }
 
 }
