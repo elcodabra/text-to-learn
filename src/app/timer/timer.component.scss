@@ -1,0 +1,21 @@
+.timer {
+	color: #ffffff;
+	font-size: 2.2rem;
+	font-weight: 300;
+	text-align: center
+}
+
+.timer__icon {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: .5rem;
+	background: url('../../assets/timer.svg') 0 0 no-repeat;
+	width: 18px;
+	height: 18px;
+}
+
+.timer span {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+}

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { LevelComponent } from './level/level.component';
+import { TimerComponent } from './timer/timer.component';
 import { SuccessResultComponent } from './success-result/success-result.component';
 import { LevelService } from './level/service/level.service';
 import { SentencesService } from './shared/service/sentences.service';
@@ -19,6 +20,7 @@ import { RandomPipe } from './shared/pipe/random.pipe';
     PageNotFoundComponent,
     HomeComponent,
     LevelComponent,
+    TimerComponent,
     SuccessResultComponent,
     ReversePipe,
     RandomPipe
