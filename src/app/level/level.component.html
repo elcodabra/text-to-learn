@@ -17,15 +17,30 @@
 			</a>
 		</div>
 
-		<div class="levels-current">
-			<div class="workspace"></div>
-			<div class="wording">
-				<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-				<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-				<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-				<div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
-			</div>
+		<div class="levels-current" *ngIf="level.id == 0">
+			<div class="workspace">
+        <p *ngFor="let item of sentences">{{ item }}</p>
+      </div>
 		</div>
+
+    <div class="levels-current" *ngIf="level.id == 1">
+      <div class="workspace">
+        <div class="wording__item" *ngFor="let item of workspaceSentences; let i = index;" (click)="removeFromList(item, i)">{{ item }}</div>
+      </div>
+      <div class="wording">
+        <div class="wording__item" *ngFor="let item of wordingSentences; let i = index;" (click)="addToList(item, i)">{{ item }}</div>
+      </div>
+    </div>
+
+    <div class="levels-current" *ngIf="[0,1].indexOf(level.id) == -1">
+      <div class="workspace"></div>
+      <div class="wording">
+        <div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
+        <div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
+        <div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
+        <div class="wording__item">Vestibulum rutrum quam vitae fringilla tincidunt.</div>
+      </div>
+    </div>
 
 		<div class="levels-uncomplete">
 			<a *ngFor="let item of levels" class="levels__item"
@@ -44,7 +59,7 @@
 	</div>
 
 	<div class="form__item form__item-btn" *ngIf="level && level.id < length">
-		<button *ngIf="level.id < length - 1" class="btn" [routerLink]="['../', level.id + 1]">Next level</button>
+		<button *ngIf="level.id < length - 1" [disabled]="!isEqual(sentences, workspaceSentences) && level.id != 0" class="btn" [routerLink]="['../', level.id + 1]">Next level</button>
 		<button *ngIf="level.id == length - 1" class="btn" [routerLink]="['/result']">Finish</button>
 	</div>
 

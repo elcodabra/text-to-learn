@@ -11,9 +11,12 @@ import 'rxjs/add/operator/switchMap';
 	styleUrls: ['./level.component.scss']
 })
 export class LevelComponent implements OnInit {
-	level: Level;
-	levels: Level[];
-  length: number;
+	level: Level
+	levels: Level[]
+  length: number
+  sentences: string[]
+  wordingSentences: string[] = []
+  workspaceSentences: string[] = []
 
 	constructor(private route: ActivatedRoute, private dataService: LevelService, private sentencesService: SentencesService) { }
 
@@ -24,7 +27,45 @@ export class LevelComponent implements OnInit {
 
     this.levels = this.dataService.getTitles()
 		this.length = this.dataService.getCount()
-    console.log("level", this.sentencesService.getSentences())
+    this.sentences = this.sentencesService.getSentences()
+    this.wordingSentences = this.shuffle(this.sentences)
 	}
+
+  addToList(item, index) {
+    this.wordingSentences.splice(index, 1)
+    this.workspaceSentences.push(item)
+  }
+
+  removeFromList(item, index) {
+    this.workspaceSentences.splice(index, 1)
+    this.wordingSentences.push(item)
+  }
+
+  isEqual(a,b) {
+    if (a.length !== b.length) return false;
+    for(let i=0; i < a.length; i++) {
+      if (a[i] !== b[i]) return false;
+    }
+    return true;
+  }
+
+  shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
 
 }
