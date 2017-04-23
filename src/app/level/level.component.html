@@ -1,6 +1,6 @@
 <div class="ttl" *ngIf="level">{{ level.name }}</div>
 
-<timer></timer>
+<timer [finish]="timerStop"></timer>
 
 <div class="levels" *ngIf="level">
 
@@ -34,14 +34,16 @@
 	</div>
 
 	<div class="levels-current" *ngIf="level.id == 2">
-		<div class="wording" *ngFor="let sentence of wordMatrix; let ind = index;">
-			<div class="wording__item" *ngFor="let item of sentence.source; let i = index;" (click)="addWord(sentence, item, i)">
-				{{ item }}
-			</div>
-			<div class="wording__item">
-				<span>{{ (ind + 1) + '. ' }}</span>
-				<span *ngFor="let item of sentence.target; let i = index;" (click)="removeWord(sentence, item, i)">{{ item + ' ' }}</span>
-				<span [hidden]="sentence.target.join(' ') != sentences[ind]" style="margin-left: 350px;">&radic;</span>
+		<div class="wording">
+			<div class="wording__stage" *ngFor="let sentence of wordMatrix; let ind = index;" [ngClass]="{'wording__stage--active': ind == 0}">
+				<div class="wording__item wording__item_part" *ngFor="let item of sentence.source; let i = index;" (click)="addWord(sentence, item, i)">
+					{{ item }}
+				</div>
+				<div class="wording__item">
+					<span class="wording__item-number">{{ (ind + 1) + '. ' }}</span>
+					<span *ngFor="let item of sentence.target; let i = index;" (click)="removeWord(sentence, item, i)">{{ item + ' ' }}</span>
+					<span [hidden]="sentence.target.join(' ') != sentences[ind]" style="margin-left: 350px;">&radic;</span>
+				</div>
 			</div>
 		</div>
 	</div>

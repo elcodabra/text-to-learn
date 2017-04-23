@@ -11,6 +11,7 @@ import 'rxjs/add/operator/switchMap';
 	styleUrls: ['./level.component.scss']
 })
 export class LevelComponent implements OnInit {
+  private timerStop: boolean = false;
 	level: Level;
 	levels: Level[];
   length: number;
