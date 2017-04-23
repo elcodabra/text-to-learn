@@ -50,10 +50,13 @@
 
 	<div class="levels-current" *ngIf="level.id == 3">
 		<div class="wording">
-      <div class="wording__stage" *ngFor="let item of inputSentences; let i = index;" [ngClass]="{'wording__stage--active': ind == 0 || inputSentences[i-1] == sentences[i-1]}">
+      <div class="wording__stage" *ngFor="let item of inputSentences; let i = index;" [ngClass]="{'wording__stage--active': i == 0 || inputSentences[i-1] == sentences[i-1]}">
         <div class="wording__item">
           <span class="wording__item-number">{{ (i+1)+'. ' }}</span>
-          <input class="form__ctrl" type="text" [(ngModel)]="inputSentences[i]" placeholder="Input the sentense #{{ i+1 }}"/>
+          <input class="form__ctrl" type="text"
+                 [(ngModel)]="inputSentences[i]"
+                 [disabled]="!(i == 0 || inputSentences[i-1] == sentences[i-1])"
+                 placeholder="Input the sentense #{{ i+1 }}"/>
           <span [ngClass]="inputSentences[i] != sentences[i] ? 'done_show': 'done'"></span>
         </div>
       </div>
@@ -66,7 +69,7 @@
 		</div>
 	</div>
 
-	<div class="levels-uncomplete">
+	<div class="levels-uncomplete" *ngIf="level.id != 0">
 		<div class="levels__item-wrap" *ngFor="let item of levels" [hidden]="item.id <= level.id">
 			<a class="levels__item"
 					[ngStyle]="{'font-size':12-2*(item.id-level.id)+'px','width':12-2*(item.id-level.id)+'rem','height':12-2*(item.id-level.id)+'rem'}"
