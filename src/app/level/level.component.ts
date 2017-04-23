@@ -15,6 +15,8 @@ export class LevelComponent implements OnInit {
 	levels: Level[];
   length: number;
   sentences: string[];
+  inputSentences: string[];
+  inputTextArea: string = "";
   wordingSentences: string[] = [];
   workspaceSentences: string[] = [];
   wordMatrix: any[] = [];
@@ -31,6 +33,7 @@ export class LevelComponent implements OnInit {
     this.sentences = this.sentencesService.getSentences();
     this.wordingSentences = this.shuffle(this.sentences);
     this.wordMatrix = this.sentences.map((item) => { return { source: this.shuffle(item.split(' ')), target: []}});
+    this.inputSentences = this.sentences.map(() => "");
 	}
 
   addToList(item, index) {
