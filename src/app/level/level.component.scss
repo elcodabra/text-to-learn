@@ -35,6 +35,7 @@
 	float: left;
 	display: inline-block;
 	vertical-align: middle;
+	margin-top: 1rem;
 	padding: 0 1.5rem;
 	min-width: 300px;
 	max-width: 500px;
@@ -46,7 +47,7 @@
 	border-radius: 1.2rem;
 	box-shadow: 0 10px 35px rgba(0,0,0,.5);
 	padding: 3.5rem 4.5rem;
-	height: 25rem;
+	min-height: 25rem;
 }
 
 .levels-current .wording {
@@ -55,7 +56,7 @@
 
 .wording__item {
 	background: #ffffff;
-	box-shadow: 0 10px 35px rgba(0,0,0,.5);
+	box-shadow: 0 2px 7px rgba(0,0,0,.15);
 	border-radius: 2rem;
 	color: #1C214E;
 	margin-top: 2rem;
@@ -66,6 +67,27 @@
 
 .wording__item:first-child{
 	margin-top: 0;
+}
+
+.levels__item-wrap {
+	float:left;
+	margin: 0 1rem;
+	height: 12rem;
+}
+
+.levels__item-wrap:before {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+	width: 0;
+}
+
+.levels__item-wrap .levels__item {
+	float: none;
+	margin: 0;
+	display: inline-block;
+	vertical-align: middle
 }
 
 .levels__item {
