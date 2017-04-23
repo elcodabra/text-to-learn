@@ -53,7 +53,7 @@
       <div class="wording__stage" *ngFor="let item of inputSentences; let i = index;" [ngClass]="{'wording__stage--active': i == 0 || inputSentences[i-1] == sentences[i-1]}">
         <div class="wording__item">
           <span class="wording__item-number">{{ (i+1)+'. ' }}</span>
-          <input class="form__ctrl" type="text"
+          <input class="form__ctrl form__ctrl-fix" type="text"
                  [(ngModel)]="inputSentences[i]"
                  [disabled]="!(i == 0 || inputSentences[i-1] == sentences[i-1])"
                  placeholder="Input the sentense #{{ i+1 }}"/>
