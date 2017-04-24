@@ -1,5 +1,7 @@
 # Text-To-Learn-App
 
+![alt text](https://raw.githubusercontent.com/sani-banani/text-to-learn/master/src/assets/welcome.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
