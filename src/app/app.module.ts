@@ -13,6 +13,7 @@ import { LevelService } from './level/service/level.service';
 import { SentencesService } from './shared/service/sentences.service';
 import { ReversePipe } from './shared/pipe/reverse.pipe';
 import { RandomPipe } from './shared/pipe/random.pipe';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RandomPipe } from './shared/pipe/random.pipe';
     TimerComponent,
     SuccessResultComponent,
     ReversePipe,
-    RandomPipe
+    RandomPipe,
+    WelcomeComponent
   ],
   imports: [
     AppRoutingModule,

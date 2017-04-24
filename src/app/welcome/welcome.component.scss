@@ -1,0 +1,20 @@
+$scale: 6;
+
+.logo {
+  width: #{140 * $scale}px;
+  height: #{19 * $scale}px;
+  display: inline-block;
+  background: url(../../assets/logo.svg) no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  outline: none;
+  margin-top: 5%;
+}
+
+.logo:hover {
+  opacity: .5;
+}
+
+.ttl {
+  margin-top: 10%;
+}
