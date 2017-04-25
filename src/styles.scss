@@ -80,7 +80,7 @@ a {
 p {
 	color: #1C214E;
 	font-family: 'Lato', sans-serif;
-	font-size: 1.6rem; 
+	font-size: 1.6rem;
 }
 
 ._center {
@@ -95,7 +95,7 @@ p {
 .btn {
 	height: 40px;
 	border: 1px solid #F78279;
-	border-radius: 20px;	
+	border-radius: 20px;
 	background-color: #F78279;
 	box-shadow: 0 3px 10px rgba(57,57,57,.5);
 	color: #ffffff;
@@ -175,7 +175,7 @@ p {
 }
 
 .form__ctrl-fix {
-	width: calc(100% - 30rem);
+	width: calc(100% - 10rem);
 }
 
 .form__ctrl-textarea {
@@ -188,7 +188,7 @@ p {
 	display: block;
 	top: 50%;
 	right: 1.7rem;
-	margin-top: -6px;  
+	margin-top: -6px;
 	background: url('./assets/done.svg') 0 0 no-repeat;
 	width: 17px;
 	height: 12px;
