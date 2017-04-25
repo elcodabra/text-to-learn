@@ -1,4 +1,6 @@
-.logo {
+@import '../shared/animate';
+
+.welcome-logo {
   width: 493.1px;
   height: 62.5px;
   display: inline-block;
@@ -7,10 +9,18 @@
   cursor: pointer;
   outline: none;
   margin-top: 52px;
+
+  animation: flash 1s linear infinite;
+  animation-play-state: paused;
+  animation-fill-mode: both;
 }
 
-.logo:hover {
-  opacity: .5;
+//.logo:hover {
+//  opacity: .5;
+//}
+
+.welcome-logo:hover {
+  animation-play-state: running;
 }
 
 .ttl {
