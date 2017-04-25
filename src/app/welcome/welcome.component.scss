@@ -9,15 +9,14 @@
   cursor: pointer;
   outline: none;
   margin-top: 52px;
-
-  animation: flash 1s linear infinite;
-  animation-play-state: paused;
-  animation-fill-mode: both;
+  //animation: flash 1s linear infinite paused;
 }
 
+/*
 .welcome-logo:hover {
   animation-play-state: running;
 }
+*/
 
 .ttl {
   margin-top: 272px;
