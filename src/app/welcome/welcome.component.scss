@@ -1,14 +1,12 @@
-$scale: 3;
-
 .logo {
-  width: #{140 * $scale}px;
-  height: #{19 * $scale}px;
+  width: 493.1px;
+  height: 62.5px;
   display: inline-block;
   background: url(../../assets/logo.svg) no-repeat;
   background-size: contain;
   cursor: pointer;
   outline: none;
-  margin-top: 5%;
+  margin-top: 52px;
 }
 
 .logo:hover {
@@ -16,5 +14,5 @@ $scale: 3;
 }
 
 .ttl {
-  margin-top: 10%;
+  margin-top: 272px;
 }
