@@ -10,8 +10,9 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 })
 export class AppComponent {
   title = 'text-to-learn';
+  path: string;
 
   constructor(private location: Location) {
-    const path: string = location.path()
+    this.path = location.path();
   }
 }
