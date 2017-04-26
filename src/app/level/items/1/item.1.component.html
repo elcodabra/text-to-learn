@@ -1,0 +1,9 @@
+<div class="workspace">
+  <div class="wording__item" *ngFor="let item of workspaceSentences; let i = index;" (click)="removeFromList(item, i)">
+    {{ item }}
+    <span [ngClass]="workspaceSentences[i] != sentences[i] ? 'done_show': 'done'"></span>
+  </div>
+</div>
+<div class="wording">
+  <div class="wording__item" *ngFor="let item of wordingSentences; let i = index;" (click)="addToList(item, i)">{{ item }}</div>
+</div>

@@ -1,95 +1,41 @@
 <div class="ttl" *ngIf="level">{{ level.name }}</div>
 
-<timer [timerStop]="timerStop"></timer>
-
-<div class="levels" *ngIf="level">
-
-	<div class="levels-complete">
-		<div class="levels__item-wrap" *ngFor="let item of levels | reverse" [hidden]="item.id > level.id || item.id == 0">
-			<a class="levels__item"
-					[ngStyle]="{'font-size':10-2*(level.id-item.id)+'px','width':10-2*(level.id-item.id)+'rem','height':10-2*(level.id-item.id)+'rem'}">
-				<div class="levels__item-flex">
-					<div class="levels__item-content">
-						<span class="number">{{ item.id }}</span>
-						<span class="caption">level</span>
-					</div>
-				</div>
-			</a>
-		</div>
-	</div>
-
-	<div class="levels-current" *ngIf="level.id == 0">
-		<div class="workspace">
-			<p *ngFor="let item of sentences">{{ item }}</p>
-		</div>
-	</div>
-
-	<div class="levels-current" *ngIf="level.id == 1">
-		<div class="workspace">
-			<div class="wording__item" *ngFor="let item of workspaceSentences; let i = index;" (click)="removeFromList(item, i)">
-        {{ item }}
-        <span [ngClass]="workspaceSentences[i] != sentences[i] ? 'done_show': 'done'"></span>
-      </div>
-    </div>
-		<div class="wording">
-			<div class="wording__item" *ngFor="let item of wordingSentences; let i = index;" (click)="addToList(item, i)">{{ item }}</div>
-		</div>
-	</div>
-
-	<div class="levels-current" *ngIf="level.id == 2">
-		<div class="wording">
-			<div class="wording__stage" *ngFor="let sentence of wordMatrix; let ind = index;" [ngClass]="{'wording__stage--active': ind == 0 || wordMatrix[ind-1].target.join(' ') == sentences[ind-1]}">
-				<div class="wording__item wording__item_part" *ngFor="let item of sentence.source; let i = index;" (click)="addWord(sentence, item, i)">
-					{{ item }}
-				</div>
-				<div class="wording__item">
-					<span class="wording__item-number">{{ (ind + 1) + '. ' }}</span>
-					<span *ngFor="let item of sentence.target; let i = index;" (click)="sentence.target.join(' ') != sentences[ind] && removeWord(sentence, item, i)">{{ item + ' ' }}</span>
-					<span [ngClass]="sentence.target.join(' ') != sentences[ind] ? 'done_show': 'done'"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="levels-current" *ngIf="level.id == 3">
-		<div class="wording">
-      <div class="wording__stage" *ngFor="let item of inputSentences; let i = index;" [ngClass]="{'wording__stage--active': i == 0 || inputSentences[i-1].text == sentences[i-1]}">
-        <div class="wording__item">
-          <span class="wording__item-number">{{ (i+1)+'. ' }}</span>
-          <input class="form__ctrl form__ctrl-fix" type="text"
-                 [(ngModel)]="inputSentences[i].text"
-                 [disabled]="!(i == 0 || inputSentences[i-1].text == sentences[i-1])"
-                 placeholder="Input the sentense #{{ i+1 }}"/>
-          <span [ngClass]="inputSentences[i].text != sentences[i] ? 'done_show': 'done'"></span>
+<div class="levels">
+  <div class="levels-complete" *ngIf="level">
+    <div class="levels__item-wrap" *ngFor="let item of levels | reverse" [hidden]="item.id > level.id || item.id == 0">
+      <a class="levels__item"
+         [ngStyle]="{'font-size':10-2*(level.id-item.id)+'px','width':10-2*(level.id-item.id)+'rem','height':10-2*(level.id-item.id)+'rem'}">
+        <div class="levels__item-flex">
+          <div class="levels__item-content">
+            <span class="number">{{ item.id }}</span>
+            <span class="caption">level</span>
+          </div>
         </div>
-      </div>
-		</div>
-	</div>
+      </a>
+    </div>
+  </div>
 
-	<div class="levels-current" *ngIf="level.id == 4">
-		<div class="workspace">
-			<textarea [(ngModel)]="inputTextArea" class="form__ctrl form__ctrl-textarea"></textarea>
-		</div>
-	</div>
+  <div class="levels-current" [ngSwitch]="level && level.id">
+    <level-item-0 *ngSwitchCase="0" [sentences]="sentences"></level-item-0>
+    <level-item-1 *ngSwitchCase="1" [workspaceSentences]="workspaceSentences" [wordingSentences]="wordingSentences"></level-item-1>
+  </div>
 
-	<div class="levels-uncomplete">
-		<div class="levels__item-wrap" *ngFor="let item of levels" [hidden]="item.id <= level.id || level.id == 0">
-			<a class="levels__item"
-					[ngStyle]="{'font-size':12-2*(item.id-level.id)+'px','width':12-2*(item.id-level.id)+'rem','height':12-2*(item.id-level.id)+'rem'}"
-					[routerLink]="['../', item.id]">
-				<div class="levels__item-flex">
-					<div class="levels__item-content">
-						<span class="number">{{ item.id }}</span>
-						<span class="caption">level</span>
-					</div>
-				</div>
-			</a>
-		</div>
-	</div>
-
+  <div class="levels-uncomplete" *ngIf="level">
+    <div class="levels__item-wrap" *ngFor="let item of levels" [hidden]="item.id <= level.id || level.id == 0">
+      <a class="levels__item"
+         [ngStyle]="{'font-size':12-2*(item.id-level.id)+'px','width':12-2*(item.id-level.id)+'rem','height':12-2*(item.id-level.id)+'rem'}"
+         [routerLink]="['../', item.id]">
+        <div class="levels__item-flex">
+          <div class="levels__item-content">
+            <span class="number">{{ item.id }}</span>
+            <span class="caption">level</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
 
-<div class="form__item form__item-btn" *ngIf="level && level.id < length">
-	<button *ngIf="level.id < length - 1" class="btn" [routerLink]="['../', level.id + 1]">Next level</button>
-	<button *ngIf="level.id == length - 1" class="btn" [routerLink]="['/result']">Finish</button>
-</div>
+
+
+
