@@ -1,5 +1,7 @@
 <div class="ttl" *ngIf="level">{{ level.name }}</div>
 
+<timer [timerStop]="timerStop"></timer>
+
 <div class="levels">
   <div class="levels-complete" *ngIf="level">
     <div class="levels__item-wrap" *ngFor="let item of levels | reverse" [hidden]="item.id > level.id || item.id == 0">
@@ -16,15 +18,14 @@
   </div>
 
   <div class="levels-current" [ngSwitch]="level && level.id">
-    <level-item-0 *ngSwitchCase="0" [sentences]="sentences"></level-item-0>
-    <level-item-1 *ngSwitchCase="1" [workspaceSentences]="workspaceSentences" [wordingSentences]="wordingSentences"></level-item-1>
+    <router-outlet></router-outlet>
   </div>
 
   <div class="levels-uncomplete" *ngIf="level">
     <div class="levels__item-wrap" *ngFor="let item of levels" [hidden]="item.id <= level.id || level.id == 0">
       <a class="levels__item"
          [ngStyle]="{'font-size':12-2*(item.id-level.id)+'px','width':12-2*(item.id-level.id)+'rem','height':12-2*(item.id-level.id)+'rem'}"
-         [routerLink]="['../', item.id]">
+         [routerLink]="['/level', item.id]">
         <div class="levels__item-flex">
           <div class="levels__item-content">
             <span class="number">{{ item.id }}</span>
@@ -34,6 +35,11 @@
       </a>
     </div>
   </div>
+</div>
+
+<div class="form__item form__item-btn" *ngIf="level && level.id < length">
+  <button *ngIf="level.id < length - 1" class="btn" [routerLink]="['/level', level.id + 1]">Next level</button>
+  <button *ngIf="level.id == length - 1" class="btn" [routerLink]="['/result']">Finish</button>
 </div>
 
 

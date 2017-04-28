@@ -4,6 +4,7 @@ import { LEVELS } from './mock-levels';
 
 @Injectable()
 export class LevelService {
+  private level: Level;
 
   constructor() { }
 
@@ -11,8 +12,13 @@ export class LevelService {
     return LEVELS
   }
 
-  getLevel(id): Promise<Level> {
-    return Promise.resolve(LEVELS[id])
+  setCurrentLevel(id): Promise<Level> {
+    this.level = LEVELS[id];
+    return Promise.resolve(this.level);
+  }
+
+  getCurrentLevel() {
+    return this.level;
   }
 
   getCount(): number {
