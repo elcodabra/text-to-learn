@@ -1,18 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
-
+import { NavigationEnd, Router } from '@angular/router';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-root',
-  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'text-to-learn';
   path: string;
 
-  constructor(private location: Location) {
-    this.path = location.path();
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.events
+      .filter(event => event instanceof NavigationEnd)
+      .subscribe((event: NavigationEnd) => {
+        this.path = event.url;
+      });
   }
 }
