@@ -4,19 +4,20 @@ import { LevelService } from '../service/level.service';
 import { SentencesService } from '../../shared/service/sentences.service';
 
 // Parent component for level items. Items should implements this component
-@Component(
-  { selector: '.level-current-item' }
-)
+@Component({
+  selector: '.level-current-item',
+  template: '<div>parent</div>'
+})
 export class LevelParentComponent implements OnInit {
-  private level: Level;
-  private levels: Level[];
-  private length: number;
-  private sentences: string[];
-  private inputSentences: any[];
-  private inputTextArea: string = "";
-  private wordingSentences: string[] = [];
-  private workspaceSentences: string[] = [];
-  private wordMatrix: any[] = [];
+  level: Level;
+  levels: Level[];
+  length: number;
+  sentences: string[];
+  inputSentences: any[];
+  inputTextArea: string = "";
+  wordingSentences: string[] = [];
+  workspaceSentences: string[] = [];
+  wordMatrix: any[] = [];
 
   constructor(private dataService: LevelService,
               private sentencesService: SentencesService) { }

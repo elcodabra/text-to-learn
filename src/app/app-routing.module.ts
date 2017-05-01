@@ -7,7 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  { path: 'level', component: LevelComponent, loadChildren: 'app/level/level-routing.module' }, // loadChildren - lazy load
+  { path: 'level', component: LevelComponent, loadChildren: 'app/level/level-routing.module#LevelModule' }, // loadChildren - lazy load
   { path: 'result', component: SuccessResultComponent },
   { path: 'welcome', component: WelcomeComponent },
   { path: '', component: HomeComponent },

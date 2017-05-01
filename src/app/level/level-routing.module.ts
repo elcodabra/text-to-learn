@@ -3,6 +3,7 @@ import { FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+import { LevelParentComponent } from './items/level.parent.component';
 import { Level0Component } from './items/0/item.0.component';
 import { Level1Component } from './items/1/item.1.component';
 import { Level4Component } from './items/4/item.4.component';
@@ -22,6 +23,7 @@ import { Level2Component } from './items/2/item.2.component';
     ])
   ],
   declarations: [
+    LevelParentComponent,
     Level0Component,
     Level1Component,
     Level2Component,
@@ -30,4 +32,4 @@ import { Level2Component } from './items/2/item.2.component';
   ],
   exports: [ RouterModule ]
 })
-export default class LevelModule { }
+export class LevelModule { }
