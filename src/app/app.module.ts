@@ -25,7 +25,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     SuccessResultComponent,
     ReversePipe,
     RandomPipe,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     AppRoutingModule,
